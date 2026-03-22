@@ -1,0 +1,138 @@
+@use 'gruvbox' as *;
+@use 'code' as *;
+
+html {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    background: $gruv-bg1;
+    color: $gruv-fg;
+    font-size: medium;
+    font-family: serif;
+    line-height: 1.5;
+    margin: 0;
+    height: 100%;
+}
+
+body > * {
+    flex-shrink: 0;
+}
+
+hr {
+    border: none;
+    border-top: double;
+    color: $gruv-gray-bg;
+    text-align: center;
+    overflow: visible;
+}
+
+.global-header {
+    background-color: $gruv-bg2;
+    color: $gruv-fg;
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.wrapper {
+    align-content: start;
+    max-width: 800px;
+    margin: auto;
+    background: $gruv-bg;
+    height: 100%;
+}
+
+.content {
+    margin: 1ex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0ex;
+    font-weight: bold;
+}
+
+h1 {
+    color: $gruv-red-fg;
+    font-size: xxx-large;
+}
+
+h2 {
+    color: $gruv-orange-fg;
+    font-size: xx-large;
+}
+
+h3 {
+    color: $gruv-yellow-fg;
+    font-size: x-large;
+}
+
+h4 {
+    color: $gruv-green-fg;
+    font-size: large;
+}
+
+h5 {
+    color: $gruv-blue-fg;
+    font-size: medium;
+}
+
+h6 {
+    color: $gruv-purple-fg;
+    font-size: medium;
+}
+
+.lineno {
+    color: invert;
+}
+
+a {
+    text-decoration: underline;
+    color: $gruv-aqua-fg;
+}
+
+a:visited {
+    color: $gruv-aqua-bg;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+pre,
+code {
+    color: $gruv-bg;
+    background-color: $gruv-fg;
+
+    font-family: monospace;
+    line-height: normal;
+
+    border-radius: 2px;
+}
+
+blockquote {
+    border-left: 2px solid $gruv-fg;
+    margin: auto;
+}
+
+blockquote>p {
+    margin-left: 4px;
+}

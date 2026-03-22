@@ -1,0 +1,10 @@
+---
+layout: base
+---
+
+<div>
+    <a href="/blog">Blog index</a>
+</div>
+<hr />
+{%- capture rawContent -%} {{ content }} {%- endcapture -%}
+<div class="post-content">{{- rawContent -}}</div>

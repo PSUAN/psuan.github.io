@@ -1,0 +1,63 @@
+---
+title: Building the blog
+short: "Note on blog creation using Jekyll and Github actions."
+---
+
+# Building the blog
+
+This blog runs on Jekyll 4, so to build and host it properly I need a Github Action Workflow.
+So, I create the `.github/workflows/` directory.
+Next, I create the `github-pages.yaml` file:
+
+```yaml
+name: "Build and deploy Jekyll-based site"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+          cache-version: 0
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build using Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+This YAML file, if created correctly, should automate the build and publish process.

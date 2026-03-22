@@ -1,0 +1,28 @@
+title: "PSUAN"
+full_title: "PSUAN collective"
+baseurl: ""
+url: "https://psuan.github.io/"
+github_username: psuan
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      render_with_liquid: false
+      math: false
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:categories/:year/:month/:day/:title/
