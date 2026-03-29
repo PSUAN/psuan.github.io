@@ -43,6 +43,13 @@ hr {
     z-index: 1;
 }
 
+.global-footer {
+    background-color: $gruv-bg2;
+    color: $gruv-fg;
+    font-family: monospace;
+    text-align: center
+}
+
 .main {
     flex-grow: 1;
 }
@@ -135,4 +142,20 @@ blockquote {
 
 blockquote>p {
     margin-left: 4px;
+}
+
+table, tr {
+    border-collapse: collapse;
+    border: 1px solid;
+}
+
+td {
+    padding-left: 0.5ex;
+    padding-right: 0.5ex;
+}
+
+table {
+    background: $gruv-bg1;
+    margin-left: auto;
+    margin-right: auto;
 }
